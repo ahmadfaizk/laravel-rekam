@@ -18,6 +18,7 @@ class CreatePaketTambahanTable extends Migration
             $table->unsignedBigInteger('id_makam');
             $table->string('nama');
             $table->integer('harga');
+            $table->string('deskripsi');
             $table->timestamps();
 
             $table->foreign('id_makam')->references('id')->on('makam');
