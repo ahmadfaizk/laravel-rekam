@@ -4,15 +4,21 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('home') }}"
-                        aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                            class="hide-menu">Dashboard</span></a></li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('home') }}" aria-expanded="false">
+                        <i data-feather="home" class="feather-icon"></i>
+                        <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+                
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
 
-                <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.html" aria-expanded="false"><i
-                            data-feather="tag" class="feather-icon"></i><span class="hide-menu">Ticket List
-                        </span></a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('makam.index') }}" aria-expanded="false">
+                        <i data-feather="tag" class="feather-icon"></i>
+                        <span class="hide-menu">Makam</span>
+                    </a>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
                         aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
