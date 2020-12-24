@@ -18,6 +18,8 @@ class Transaksi extends Model
         'id_makam'
     ];
 
+    public $timestamps = false;
+
     public function makam() {
         return $this->belongsTo(Makam::class, 'id_makam');
     }

@@ -84,7 +84,7 @@ class MakamController extends Controller
      */
     public function show(Makam $makam)
     {
-        //
+        return view('makam.show', compact('makam'));
     }
 
     /**
@@ -95,7 +95,10 @@ class MakamController extends Controller
      */
     public function edit(Makam $makam)
     {
-        //
+        $provinsis = Provinsi::all();
+        $kabupatens = Kabupaten::where('id_provinsi', $makam->id_provinsi)->get();
+        $kecamatans = Kecamatan::where('id_kabupaten', $makam->id_kabupaten)->get();
+        return view('makam.edit', compact('makam', 'provinsis', 'kabupatens', 'kecamatans'));
     }
 
     /**

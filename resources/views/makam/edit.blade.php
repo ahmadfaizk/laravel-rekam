@@ -7,17 +7,18 @@
 
 @section('content')
 @component('components.breadcrumb')
-    @slot('title', 'Tambah Makam')
+    @slot('title', 'Edit Makam')
     <li class="breadcrumb-item"><a href="#">Data Master</a></li>
     <li class="breadcrumb-item"><a href="{{ route('makam.index') }}">Makam</a></li>
-    <li class="breadcrumb-item active">Tambah Baru</li>
+    <li class="breadcrumb-item active">Edit</li>
     @slot('button', '')
 @endcomponent
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form action="{{ route('makam.store') }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('makam.update', $makam->id) }}" enctype="multipart/form-data" method="POST">
+                    @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -25,7 +26,7 @@
                                 <div class="form-group">
                                     <label for="foto">Foto Makam</label>
                                     <input class="form-control-file @error('foto') is-invalid @enderror" type="file"
-                                        name="foto" id="foto" required>
+                                        name="foto" id="foto">
                                     @error('foto')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="nama">Nama Makam</label>
                                     <input class="form-control @error('nama') is-invalid @enderror" type="text"
-                                        name="nama" id="nama" value="{{ old('nama') }}" required>
+                                        name="nama" id="nama" value="{{ old('nama') ?? $makam->nama }}" required>
                                     @error('nama')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,7 +52,7 @@
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
                                     <input class="form-control @error('harga') is-invalid @enderror" type="number"
-                                        name="harga" id="harga" value="{{ old('harga') }}" required>
+                                        name="harga" id="harga" value="{{ old('harga') ?? $makam->harga }}" required>
                                     @error('harga')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -63,7 +64,7 @@
                                 <div class="form-group">
                                     <label for="stok">Stok</label>
                                     <input class="form-control @error('stok') is-invalid @enderror" type="number"
-                                        name="stok" id="stok" value="{{ old('stok') }}" required>
+                                        name="stok" id="stok" value="{{ old('stok') ?? $makam->stok }}" required>
                                     @error('stok')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -78,7 +79,7 @@
                                     <label for="provinsi">Provinsi</label>
                                     <select class="form-control" name="provinsi" id="provinsi">
                                         @foreach ($provinsis as $provinsi)
-                                        <option value="{{ $provinsi->id }}">{{ $provinsi->nama }}</option>
+                                        <option value="{{ $provinsi->id }}" {{ ($provinsi->id == $makam->id_provinsi) ? 'selected' : '' }}>{{ $provinsi->nama }}</option>
                                         @endforeach
                                     </select>
                                     @error('provinsi')
@@ -93,7 +94,7 @@
                                     <label for="kabupaten">Kabupaten</label>
                                     <select class="form-control" name="kabupaten" id="kabupaten">
                                         @foreach ($kabupatens as $kabupaten)
-                                        <option value="{{ $kabupaten->id }}">{{ $kabupaten->nama }}</option>
+                                        <option value="{{ $kabupaten->id }}" {{ ($kabupaten->id == $makam->id_kabupaten) ? 'selected' : '' }}>{{ $kabupaten->nama }}</option>
                                         @endforeach
                                     </select>
                                     @error('kabupaten')
@@ -108,7 +109,7 @@
                                     <label for="kecamatan">Kecamatan</label>
                                     <select class="form-control" name="kecamatan" id="kecamatan">
                                         @foreach ($kecamatans as $kecamatan)
-                                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+                                        <option value="{{ $kecamatan->id }}" {{ ($kecamatan->id == $makam->id_kecamatan) ? 'selected' : '' }}>{{ $kecamatan->nama }}</option>
                                         @endforeach
                                     </select>
                                     @error('kecamatan')
@@ -122,7 +123,7 @@
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
                             <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat"
-                                id="alamat" rows="3" required>{{ old('alamat') }}</textarea>
+                                id="alamat" rows="3" required>{{ old('alamat') ?? $makam->alamat }}</textarea>
                             @error('alamat')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -132,7 +133,7 @@
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi"
-                                id="deskripsi" rows="3">{{ old('deskripsi') }}</textarea>
+                                id="deskripsi" rows="3">{{ old('deskripsi') ?? $makam->deskripsi }}</textarea>
                             @error('deskripsi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
