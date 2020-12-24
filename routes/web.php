@@ -12,10 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect()->route('home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('makam', 'MakamController');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/provinsi', 'ProvinsiController@index');
+    Route::get('/provinsi/{id}', 'ProvinsiController@show');
+    Route::get('/kabupaten/{id}', 'KabupatenController@show');
+    Route::resource('makam', 'MakamController');
+});

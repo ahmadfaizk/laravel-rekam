@@ -12,7 +12,8 @@ class Transaksi extends Model
         'status',
         'total_transaksi',
         'bukti_transfer',
-        'tgl_transaksi',
+        'waktu_transaksi',
+        'waktu_pembayaran',
         'id_user',
         'id_makam'
     ];
@@ -23,9 +24,5 @@ class Transaksi extends Model
 
     public function user() {
         return $this->belongsTo(User::class, 'id_user');
-    }
-
-    public function paketTambahan() {
-        return $this->belongsToMany(PaketTambahan::class, 'transaksi_paket_tambahan', 'id_transaksi', 'id_paket_tambahan');
     }
 }

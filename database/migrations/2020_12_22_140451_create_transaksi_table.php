@@ -19,9 +19,9 @@ class CreateTransaksiTable extends Migration
             $table->unsignedBigInteger('id_makam');
             $table->enum('status', ['Belum Dibayar', 'Menunggu Verfifikasi', 'Berhasil', 'Gagal'])->default('Belum Dibayar');
             $table->string('bukti_transfer')->nullable();
+            $table->dateTime('waktu_pembayaran')->nullable();
             $table->integer('total_transaksi');
-            $table->date('tgl_transaksi');
-            $table->timestamps();
+            $table->dateTime('waktu_transaksi');
 
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_makam')->references('id')->on('makam');

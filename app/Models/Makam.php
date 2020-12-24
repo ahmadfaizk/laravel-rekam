@@ -14,11 +14,16 @@ class Makam extends Model
         'stok',
         'deskripsi',
         'harga',
+        'foto',
         'id_user',
         'id_provinsi',
         'id_kabupaten',
         'id_kecamatan'
     ];
+
+    public function getHargaRupiahAttribute() {
+        return 'Rp. ' . number_format($this->harga, 2, ',', '.');
+    }
 
     public function provinsi() {
         return $this->belongsTo(Provinsi::class, 'id_provinsi');
@@ -34,13 +39,5 @@ class Makam extends Model
 
     public function user() {
         return $this->belongsTo(User::class, 'id_user');
-    }
-
-    public function paketTambahan() {
-        return $this->hasMany(PaketTambahan::class, 'id_makam');
-    }
-
-    public function foto() {
-        return $this->hasMany(FotoMakam::class, 'id_makam');
     }
 }

@@ -22,9 +22,11 @@ class CreateMakamTable extends Migration
             $table->unsignedBigInteger('id_kabupaten');
             $table->unsignedBigInteger('id_kecamatan');
             $table->integer('stok');
-            $table->string('deksripsi');
+            $table->string('deskripsi');
             $table->integer('harga');
+            $table->string('foto');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_provinsi')->references('id')->on('provinsi');

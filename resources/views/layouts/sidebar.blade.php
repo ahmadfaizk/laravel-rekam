@@ -12,7 +12,7 @@
                 </li>
                 
                 <li class="list-divider"></li>
-                <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
+                <li class="nav-small-cap"><span class="hide-menu">DataMaster</span></li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('makam.index') }}" aria-expanded="false">
@@ -20,7 +20,7 @@
                         <span class="hide-menu">Makam</span>
                     </a>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
+                {{-- <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
                         aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
                             class="hide-menu">Chat</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-calendar.html"
@@ -214,7 +214,7 @@
                 <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../../docs/docs.html"
                         aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span
-                            class="hide-menu">Documentation</span></a></li>
+                            class="hide-menu">Documentation</span></a></li> --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link sidebar-link" href="javascript:void(0)" aria-expanded="false"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
