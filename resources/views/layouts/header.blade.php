@@ -33,9 +33,8 @@
             <!-- Toggle which is visible on mobile only -->
             <!-- ============================================================== -->
             <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
-                data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
-                    class="ti-more"></i></a>
+                data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
@@ -161,8 +160,8 @@
                     <a class="nav-link" href="javascript:void(0)">
                         <form>
                             <div class="customize-input">
-                                <input class="form-control custom-shadow custom-radius border-0 bg-white"
-                                    type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control custom-shadow custom-radius border-0 bg-white" type="search"
+                                    placeholder="Search" aria-label="Search">
                                 <i class="form-control-icon" data-feather="search"></i>
                             </div>
                         </form>
@@ -195,10 +194,12 @@
                                 class="svg-icon mr-2 ml-1"></i>
                             Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();"><i data-feather="power"
-                                class="svg-icon mr-2 ml-1"></i>
+                        <a class="dropdown-item" href="javascript:void(0)"
+                            onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();"><i
+                                data-feather="power" class="svg-icon mr-2 ml-1"></i>
                             Logout</a>
-                        <form id="logout-form-header" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form-header" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
                             @csrf
                         </form>
                         <div class="dropdown-divider"></div>
