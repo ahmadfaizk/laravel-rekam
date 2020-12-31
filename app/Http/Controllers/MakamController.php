@@ -19,7 +19,7 @@ class MakamController extends Controller
      */
     public function index()
     {
-        $makams = Makam::paginate(6);
+        $makams = Makam::where('id_user', auth()->id())->paginate(6);
         return view('makam.index', compact('makams'));
     }
 

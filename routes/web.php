@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    //return view('welcome');
     return redirect()->route('home');
 });
 
@@ -24,4 +23,5 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/provinsi/{id}', 'ProvinsiController@show');
     Route::get('/kabupaten/{id}', 'KabupatenController@show');
     Route::resource('makam', 'MakamController');
+    Route::get('marketplace', 'MarketplaceController@index')->name('marketplace.index');
 });

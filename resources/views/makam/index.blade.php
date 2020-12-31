@@ -20,13 +20,16 @@
                             alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">{{ $makam->nama }}</h4>
-                            <p class="card-text">{{ $makam->harga_rupiah }}</p>
-                        </div>
-                        <div class="card-footer">
-                            <div class="btn-group" role="group" aria-label="Action button">
-                                <a href="{{ route('makam.show', $makam->id) }}" id="show" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> Lihat</a>
-                                <a href="{{ route('makam.edit', $makam->id) }}" id="edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                <a href="{{ route('makam.destroy', $makam->id) }}" id="delete" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i> Hapus</a>
+                            <p class="card-text">
+                                Harga : {{ $makam->harga_rupiah }}<br>
+                                Stok : {{ $makam->stok }}
+                            </p>
+                            <div class="d-flex justify-content-left align-items-center">
+                                <div class="btn-group" role="group" aria-label="Action button">
+                                    <a href="{{ route('makam.show', $makam->id) }}" id="show" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> Lihat</a>
+                                    <a href="{{ route('makam.edit', $makam->id) }}" id="edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="{{ route('makam.destroy', $makam->id) }}" id="delete" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i> Hapus</a>
+                                </div>
                             </div>
                         </div>
                     </div>
