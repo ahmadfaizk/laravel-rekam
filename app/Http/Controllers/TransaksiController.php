@@ -10,7 +10,6 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class TransaksiController extends Controller
@@ -73,8 +72,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::find($request->id);
 
         $fileBukti = $request->file('bukti');
-        $namaBukti = date('dmY') .'_'. Str::random(10) . '.' . $fileBukti->getClientOriginalExtension();
-        Storage::putFileAs('public/transaksi', $fileBukti, $namaBukti);
+        $namaBukti = Storage::disk('public_uploads')->put('transaksi', $fileBukti);
         $transaksi->bukti_transfer = $namaBukti;
         $transaksi->waktu_pembayaran = now();
         $transaksi->status = 'Menunggu Verifikasi';
@@ -97,7 +95,7 @@ class TransaksiController extends Controller
             $makam->save();
         } else {
             $transaksi->status = 'Gagal';
-            Storage::delete('public/transaksi/'.$transaksi->bukti_transfer);
+            Storage::disk('public_uploads')->delete($transaksi->bukti_transfer);
             $transaksi->bukti_transfer = null;
         }
         $transaksi->save();

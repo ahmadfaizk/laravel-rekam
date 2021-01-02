@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-12">
-                            <img class="img-fluid" src="/storage/makam/{{ $makam->foto }}" alt="Card image cap">
+                            <img class="img-fluid" src="/uploads/{{ $makam->foto }}" alt="Card image cap">
                         </div>
                         <div class="col-md-8 col-12">
                             <h4 class="card-title">{{ $makam->nama }}</h4>

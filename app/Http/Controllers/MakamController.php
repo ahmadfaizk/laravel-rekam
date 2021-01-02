@@ -7,7 +7,6 @@ use App\Models\Kecamatan;
 use App\Models\Makam;
 use App\Models\Provinsi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class MakamController extends Controller
@@ -41,8 +40,7 @@ class MakamController extends Controller
         ]);
 
         $fileFoto = $request->file('foto');
-        $namaFoto = date('dmY') .'_'. Str::random(10) . '.' . $fileFoto->getClientOriginalExtension();
-        Storage::putFileAs('public/makam', $fileFoto, $namaFoto);
+        $namaFoto = Storage::disk('public_uploads')->put('makam', $fileFoto);
 
         $makam = Makam::create([
             'nama' => $request->nama,
@@ -97,10 +95,9 @@ class MakamController extends Controller
         $makam->id_kecamatan = $request->kecamatan;
 
         if ($request->has('foto')) {
-            Storage::delete('public/makam'.$makam->foto);
+            Storage::disk('public_uploads')->delete($makam->foto);
             $fileFoto = $request->input('foto');
-            $namaFoto = date('dmY') .'_'. Str::random(10) . '.' . $fileFoto->getClientOriginalExtension();
-            Storage::putFileAs('public/makam', $fileFoto, $namaFoto);
+            $namaFoto = Storage::disk('public_uploads')->put('makam', $fileFoto);
             $makam->foto = $namaFoto;
         }
 

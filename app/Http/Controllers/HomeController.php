@@ -9,21 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         $user = auth()->user();
@@ -38,7 +28,7 @@ class HomeController extends Controller
             ]
         ];
         $transaksiBar = DB::table('makam as m')
-            ->selectRaw('m.nama as x, (SELECT COUNT(t.id) FROM transaksi AS t WHERE t.id_makam = m.id) AS y')
+            ->selectRaw('m.nama as x, (SELECT COUNT(t.id) FROM transaksi AS t WHERE t.id_makam = m.id AND t.status = "Berhasil") AS y')
             ->get();
         return view('home', compact('transaksiChart', 'transaksiBar'));
     }

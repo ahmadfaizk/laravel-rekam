@@ -17,7 +17,7 @@
                 @role('penjual')
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('makam.index') }}" aria-expanded="false">
-                        <i data-feather="tag" class="feather-icon"></i>
+                        <i data-feather="file-text" class="feather-icon"></i>
                         <span class="hide-menu">Makam</span>
                     </a>
                 </li>
@@ -26,7 +26,7 @@
                 @role('pembeli')
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('marketplace.index') }}" aria-expanded="false">
-                        <i data-feather="tag" class="feather-icon"></i>
+                        <i data-feather="shopping-cart" class="feather-icon"></i>
                         <span class="hide-menu">Marketplace</span>
                     </a>
                 </li>
@@ -34,7 +34,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('transaksi.index') }}" aria-expanded="false">
-                        <i data-feather="tag" class="feather-icon"></i>
+                        <i data-feather="archive" class="feather-icon"></i>
                         <span class="hide-menu">Transaksi</span>
                     </a>
                 </li>

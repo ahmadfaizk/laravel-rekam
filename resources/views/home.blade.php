@@ -22,8 +22,8 @@
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Transaksi Anda</h4>
-                    <canvas id="transaksi-chart" class="mt-2" style="height:283px; width:100%;"></canvas>
+                    <h4 class="card-title">Transaksi</h4>
+                    <canvas id="transaksi-chart" class="mt-2" style="height:300px; width:100%;"></canvas>
                 </div>
             </div>
         </div>
@@ -31,13 +31,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Makam Terjual</h4>
-                    {{-- <div class="net-income mt-4 position-relative" style="height:294px;"></div> --}}
-                    <canvas id="transaksi-bar" class="mt-2" style="height: 294px; width:100%;"></canvas>
+                    <canvas id="transaksi-bar" class="mt-2" style="height: 300px; width:100%;"></canvas>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@else
+<div class="container-fluid"></div>
 @endrole
 
 @endsection
@@ -46,6 +47,50 @@
 <!-- Chart JS -->
 <script src="{{ asset('assets/libs/chart.js/dist/Chart.min.js') }}"></script>
 <script>
+    var ticksStyle = {
+        fontColor: '#495057',
+        fontStyle: 'bold'
+    }
+    var mode = 'index'
+    var intersect = true
+
+    var optionsBarChart = {
+        ///maintainAspectRatio: false,
+        tooltips: {
+            mode: mode,
+            intersect: intersect
+        },
+        hover: {
+            mode: mode,
+            intersect: intersect
+        },
+        legend: {
+            display: true,
+            position: 'bottom',
+        },
+        scales: {
+            yAxes: [{
+                gridLines: {
+                    display: true,
+                    lineWidth: '4px',
+                    color: 'rgba(0, 0, 0, .2)',
+                    zeroLineColor: 'transparent'
+                },
+                ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                },
+            }],
+            xAxes: [{
+                display: true,
+                gridLines: {
+                    display: false
+                },
+                ticks: ticksStyle
+            }]
+        }
+    }
+
     var transaksiChart = new Chart($('#transaksi-chart'), {
         type: 'doughnut',
         data: {
@@ -70,29 +115,20 @@
             }
         }
     })
-    var transaksiBar = new Chart($('#transaksi-bar'), {
+
+    var departmentChart = new Chart($('#transaksi-bar'), {
         type: 'bar',
         data: {
+            labels: @json($transaksiBar->pluck('x')),
             datasets: [{
-                data: @json($transaksiBar->pluck('y')),
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 206, 86)',
-                    'rgb(75, 192, 192)',
-                    'rgb(153, 102, 255)',
-                    'rgb(255, 159, 64)'
-                ],
-                borderWidth: 1
-            }],
-            labels: @json($transaksiBar->pluck('x'))
+                    label: 'Makam',
+                    backgroundColor: '#007bff',
+                    borderColor: '#007bff',
+                    data: @json($transaksiBar->pluck('y')),
+                },
+            ]
         },
-        options: {
-            legend: {
-                display: true,
-                position: 'bottom',
-            }
-        }
+        options: optionsBarChart
     })
 </script>
 @endpush

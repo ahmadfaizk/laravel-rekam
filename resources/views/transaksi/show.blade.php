@@ -57,7 +57,7 @@
                                 <h5 class="card-title">Bukti Transfer</h5>
                                 <div class="row">
                                     <div class="col-md-6 col-12">
-                                        <img src="/storage/transaksi/{{ $transaksi->bukti_transfer }}" class="img-fluid" alt="Bukti Transfer">
+                                        <img src="/uploads/{{ $transaksi->bukti_transfer }}" class="img-fluid" alt="Bukti Transfer">
                                     </div>
                                 </div>
                                 <p class="card-text">Waktu Transfer : {{ $transaksi->waktu_pembayaran }}</p>
@@ -110,7 +110,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="card-title">Bukti Transfer</h5>
-                                <img src="/storage/transaksi/{{ $transaksi->bukti_transfer }}" class="img-fluid" alt="Bukti Transfer">
+                                <img src="/uploads/{{ $transaksi->bukti_transfer }}" class="img-fluid" alt="Bukti Transfer">
                                 <p class="card-text">Waktu Transfer : {{ $transaksi->waktu_pembayaran }}</p>
                             </div>
                         </div>

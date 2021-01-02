@@ -15,7 +15,7 @@
                 <div class="col-lg-3 col-md-6">
                     <a href="{{ route('marketplace.show', $makam->id) }}">
                         <div class="card">
-                            <img class="card-img-top img-fluid" src="/storage/makam/{{ $makam->foto }}"
+                            <img class="card-img-top img-fluid" src="/uploads/{{ $makam->foto }}"
                                 alt="Card image cap" style="height: 200px;">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $makam->nama }}</h4>
