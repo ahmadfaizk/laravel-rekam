@@ -28,6 +28,10 @@ class Makam extends Model
         return 'Rp. ' . number_format($this->harga, 2, ',', '.');
     }
 
+    public function transaksi() {
+        return $this->hasMany(Transaksi::class, 'id_makam');
+    }
+
     public function provinsi() {
         return $this->belongsTo(Provinsi::class, 'id_provinsi');
     }

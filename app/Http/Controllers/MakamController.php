@@ -12,22 +12,12 @@ use Illuminate\Support\Facades\Storage;
 
 class MakamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $makams = Makam::where('id_user', auth()->id())->paginate(6);
         return view('makam.index', compact('makams'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $provinsis = Provinsi::all();
@@ -36,12 +26,6 @@ class MakamController extends Controller
         return view('makam.create', compact('provinsis', 'kabupatens', 'kecamatans'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -76,23 +60,11 @@ class MakamController extends Controller
         return redirect()->route('makam.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Makam  $makam
-     * @return \Illuminate\Http\Response
-     */
     public function show(Makam $makam)
     {
         return view('makam.show', compact('makam'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Makam  $makam
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Makam $makam)
     {
         $provinsis = Provinsi::all();
@@ -101,13 +73,6 @@ class MakamController extends Controller
         return view('makam.edit', compact('makam', 'provinsis', 'kabupatens', 'kecamatans'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Makam  $makam
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Makam $makam)
     {
         $this->validate($request, [
@@ -143,12 +108,6 @@ class MakamController extends Controller
         return redirect()->route('makam.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Makam  $makam
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Makam $makam)
     {
         $makam->delete();

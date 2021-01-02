@@ -27,15 +27,13 @@
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
             style="background:url({{ asset('assets/images/big/auth-bg.jpg') }}) no-repeat center center;">
             <div class="auth-box row">
-                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url({{ asset('assets/images/big/3.jpg') }});">
-                </div>
-                <div class="col-lg-5 col-md-7 bg-white">
+                <div class="col-lg-12 col-md-12 bg-white">
                     <div class="p-3">
                         <div class="text-center">
                             <img src="{{ asset('assets/images/big/icon.png') }}" alt="wrapkit">
                         </div>
-                        <h2 class="mt-3 text-center">Sign In</h2>
-                        <p class="text-center">Enter your email address and password to access admin panel.</p>
+                        <h2 class="mt-3 text-center">Masuk</h2>
+                        <p class="text-center">Masukkan email dan password anda untuk masuk ke aplikasi.</p>
                         <form class="mt-4" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="row">
@@ -43,7 +41,7 @@
                                     <div class="form-group">
                                         <label class="text-dark" for="email">Email</label>
                                         <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email"
-                                            value="{{ old('email') }}" placeholder="enter your email" required autocomplete="email">
+                                            value="{{ old('email') }}" placeholder="Masukkan email" required autocomplete="email">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -55,7 +53,7 @@
                                     <div class="form-group">
                                         <label class="text-dark" for="pwd">Password</label>
                                         <input class="form-control @error('password') is-invalid @enderror" id="pwd" type="password" name="password"
-                                            placeholder="enter your password" required autocomplete="current-password">
+                                            placeholder="Masukkan password" required autocomplete="current-password">
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -64,10 +62,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" class="btn btn-block btn-dark">Sign In</button>
+                                    <button type="submit" class="btn btn-block btn-dark">Masuk</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
-                                    Don't have an account? <a href="{{ route('register') }}" class="text-danger">Sign Up</a>
+                                    Belum punya akun? <a href="{{ route('register') }}" class="text-danger">Daftar</a>
                                 </div>
                             </div>
                         </form>

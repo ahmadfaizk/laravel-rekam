@@ -13,10 +13,10 @@
             <div class="row">
                 @foreach ($makams as $makam)
                 <div class="col-lg-3 col-md-6">
-                    <a href="{{ route('makam.show', $makam->id) }}">
+                    <a href="{{ route('marketplace.show', $makam->id) }}">
                         <div class="card">
                             <img class="card-img-top img-fluid" src="/storage/makam/{{ $makam->foto }}"
-                                alt="Card image cap">
+                                alt="Card image cap" style="height: 200px;">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $makam->nama }}</h4>
                                 <p class="card-text">
@@ -26,7 +26,6 @@
                             </div>
                         </div>
                     </a>
-                    
                 </div>
                 @endforeach
             </div>

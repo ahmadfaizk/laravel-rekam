@@ -12,7 +12,7 @@
                 </li>
                 
                 <li class="list-divider"></li>
-                <li class="nav-small-cap"><span class="hide-menu">DataMaster</span></li>
+                {{-- <li class="nav-small-cap"><span class="hide-menu">DataMaster</span></li> --}}
 
                 @role('penjual')
                 <li class="sidebar-item">
@@ -31,6 +31,13 @@
                     </a>
                 </li>
                 @endrole
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('transaksi.index') }}" aria-expanded="false">
+                        <i data-feather="tag" class="feather-icon"></i>
+                        <span class="hide-menu">Transaksi</span>
+                    </a>
+                </li>
                 
                 <li class="sidebar-item">
                     <a class="sidebar-link sidebar-link" href="javascript:void(0)" aria-expanded="false"
