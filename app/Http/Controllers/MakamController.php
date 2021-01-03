@@ -96,7 +96,7 @@ class MakamController extends Controller
 
         if ($request->has('foto')) {
             Storage::disk('public_uploads')->delete($makam->foto);
-            $fileFoto = $request->input('foto');
+            $fileFoto = $request->file('foto');
             $namaFoto = Storage::disk('public_uploads')->put('makam', $fileFoto);
             $makam->foto = $namaFoto;
         }
