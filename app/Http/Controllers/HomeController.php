@@ -29,6 +29,7 @@ class HomeController extends Controller
         ];
         $transaksiBar = DB::table('makam as m')
             ->selectRaw('m.nama as x, (SELECT COUNT(t.id) FROM transaksi AS t WHERE t.id_makam = m.id AND t.status = "Berhasil") AS y')
+            ->when('m.id_user', auth()->id())
             ->get();
         return view('home', compact('transaksiChart', 'transaksiBar'));
     }
