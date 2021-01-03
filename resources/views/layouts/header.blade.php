@@ -12,17 +12,18 @@
                 <a href="{{ route('home') }}">
                     <b class="logo-icon">
                         <!-- Dark Logo icon -->
-                        <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
+                        {{-- <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
                         <!-- Light Logo icon -->
-                        <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" />
+                        <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" /> --}}
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <span class="logo-text">
                         <!-- dark Logo text -->
-                        <img src="{{ asset('assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
-                        <!-- Light Logo text -->
-                        <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" />
+                        <span style="font-family: 'Pacifico', cursive; font-size: 32px;">Rekam</span>
+                        {{-- <img src="{{ asset('assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
+
+                        <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /> --}}
                     </span>
                 </a>
             </div>
@@ -33,9 +34,8 @@
             <!-- Toggle which is visible on mobile only -->
             <!-- ============================================================== -->
             <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
-                data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
-                    class="ti-more"></i></a>
+                data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
@@ -161,8 +161,8 @@
                     <a class="nav-link" href="javascript:void(0)">
                         <form>
                             <div class="customize-input">
-                                <input class="form-control custom-shadow custom-radius border-0 bg-white"
-                                    type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control custom-shadow custom-radius border-0 bg-white" type="search"
+                                    placeholder="Search" aria-label="Search">
                                 <i class="form-control-icon" data-feather="search"></i>
                             </div>
                         </form>
@@ -176,12 +176,12 @@
                         aria-haspopup="true" aria-expanded="false">
                         <img src="{{ asset('assets/images/users/profile-pic.jpg') }}" alt="user" class="rounded-circle"
                             width="40">
-                        <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
+                        <span class="ml-2 d-none d-lg-inline-block"><span
                                 class="text-dark">{{ Auth::user()->name }}</span> <i data-feather="chevron-down"
                                 class="svg-icon"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                        {{-- <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                 class="svg-icon mr-2 ml-1"></i>
                             My Profile</a>
                         <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
@@ -194,16 +194,18 @@
                         <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
                                 class="svg-icon mr-2 ml-1"></i>
                             Account Setting</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();"><i data-feather="power"
-                                class="svg-icon mr-2 ml-1"></i>
+                        <div class="dropdown-divider"></div> --}}
+                        <a class="dropdown-item" href="javascript:void(0)"
+                            onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();"><i
+                                data-feather="power" class="svg-icon mr-2 ml-1"></i>
                             Logout</a>
-                        <form id="logout-form-header" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form-header" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
                             @csrf
                         </form>
-                        <div class="dropdown-divider"></div>
+                        {{-- <div class="dropdown-divider"></div>
                         <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
-                                Profile</a></div>
+                                Profile</a></div> --}}
                     </div>
                 </li>
                 <!-- ============================================================== -->
